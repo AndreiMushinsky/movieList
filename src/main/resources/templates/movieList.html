@@ -1,0 +1,41 @@
+<html>
+
+<head>
+  <title>Movie List</title>
+  <link rel="stylesheet" th:href="@{/style.css}"></link>
+</head>
+
+<body>
+  <h2 th:text="${user + ' movies'}"></h2>
+  <div th:unless="${#lists.isEmpty(movies)}">
+    <dl th:each="movie : ${movies}">
+      <dt class="movieHeadline">
+        <span th:text="${movie.title}">Title</span> directed by
+        <span th:text="${movie.director}">Director</span>
+        (Year: <span th:text="${movie.year}">Year</span>)
+      </dt>
+      <dd class="movieDescription">
+        <span th:if="${movie.description}" th:text="${movie.description}">Description</span>
+        <span th:if="${movie.description eq null}">No description available</span>
+      </dd>
+    </dl>
+  </div>
+  <div th:if="${#lists.isEmpty(movies)}">
+    <p>There is no movies of this director.</p>
+  </div>
+  <hr/>
+    <h3>Add a movie</h3>
+    <form method="POST">
+      <label for="title">Title:</label>
+      <input type="text" name="title" size="50"></input><br/>
+      <label for="director">Director:</label>
+      <input type="text" name="director" size="50"></input><br/>
+      <label for="year">Year:</label>
+      <input type="text" name="year" size="4"></input><br/>
+      <label for="description">Description:</label><br/>
+      <textarea name="description" cols="80" rows="5">
+      </textarea><br/>
+      <input type="submit"></input>
+    </form>
+  </body>
+</html>

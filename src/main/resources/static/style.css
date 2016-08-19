@@ -1,0 +1,17 @@
+body {
+  background-color: #cccccc;
+  font-family: arial,helvetica,sans-serif;
+}
+
+.movieHeadline {
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+.movieDescription {
+  font-size: 10pt;
+}
+
+label {
+  font-weight: bold;
+}
